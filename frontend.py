@@ -31,12 +31,15 @@ def add_command():
     backend.insert(album_text.get(), artist_text.get(),year_text.get(),genre_text.get())
     list1.delete(0,END)
     list1.insert(END,(album_text.get(), artist_text.get(),year_text.get(),genre_text.get()))
+    view_command()
 
 def delete_command():
     backend.delete(selected_tuple[0])
+    view_command()
 
 def update_command():
     backend.update(selected_tuple[0],album_text.get(), artist_text.get(),year_text.get(),genre_text.get())
+    view_command()
 
 # create window & title
 window = Tk()
@@ -104,5 +107,7 @@ b5.grid(row=6, column=3)
 
 b6=Button(window, text = "Close", width=12, command=window.destroy)
 b6.grid(row=7, column=3)
+
+view_command()
 
 window.mainloop()
